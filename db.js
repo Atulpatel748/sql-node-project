@@ -1,91 +1,68 @@
-const mysql = require("mysql2");
+const {
+  getAllStudents,
+  getStudentById,
+  createStudent,
+  updateStudent,
+  deleteStudent,
+} = require("./models/studentModel");
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "@Akanat_160107",
-  database: "student_management",
-});
+// // ----------------Get all students----------------------------
 
-connection.connect((err) => {
-  if (err) {
-    console.log("Connection failed:", err.message);
-    return;
-  }
+// getAllStudents((err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
 
-  console.log("MySQL Connected!");
+//   console.log(result);
+// });
 
-  // --------SELECT a student record------------
+// //----------------Get a student by ID-------------------------
 
-  const studentId = 2;
+// const studentId = 1;
+// getStudentById(studentId, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
 
-  connection.query(
-    "SELECT * FROM students WHERE id = ?",
-    [studentId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
+//   console.log(result);
+// });
 
-      console.log(result);
-    },
-  );
+// // -----------------Create a new student-----------------------
 
-  //  -------------INSERT student record---------------
+// createStudent("Rahul", 21, "Node.js", 2, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
 
-  const studentName = "John";
-  const studentAge = 23;
-  const studentCourse = "Node.js";
-  const courseId = 2;
+//   console.log(result);
+// });
 
-  connection.query(
-    "INSERT INTO students (name, age, course, course_id) VALUES (?, ?, ?, ?)",
-    [studentName, studentAge, studentCourse, courseId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
+// // -----------------Update a student's course------------------
 
-      console.log(result);
-    },
-  );
+// const studentId = 7;
+// const newCourse = "Express";
 
-  // ---------------UPDATE a student record-------------
+// updateStudent(studentId, newCourse, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
 
-  // const studentId = 5;
-  const newCourse = "Express";
+//   console.log(result);
+// });
 
-  connection.query(
-    "UPDATE students SET course = ? WHERE id = ?",
-    [newCourse, studentId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
+// -----------------Delete a student------------------
 
-      console.log(result);
-    },
-  );
+// const studentId = 8;
 
-  // --------DELETE a student record--------
+// deleteStudent(studentId, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
 
-  // const studentId = 5;
-
-  connection.query(
-    "DELETE FROM students WHERE id = ?",
-    [studentId],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-
-      console.log(result);
-    },
-  );
-
-  connection.end();
-});
+//   console.log(result);
+// });
