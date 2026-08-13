@@ -11,6 +11,15 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "express": "^5.2.1",
     "mysql2": "^3.23.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atulpatel748/sql-node-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Atulpatel748/sql-node-project/issues"
+  },
+  "homepage": "https://github.com/Atulpatel748/sql-node-project#readme"
 }

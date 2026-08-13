@@ -1,0 +1,16 @@
+const express = require("express");
+const studentRoutes = require("./routes/studentRoutes");
+const app = express();
+
+
+app.use(express.json());
+app.use(studentRoutes);
+
+
+app.get("/", (req, res) => {
+  res.send("SQL + Node.js API");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
